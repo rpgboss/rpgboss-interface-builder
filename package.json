@@ -1,0 +1,8 @@
+{
+  "name": "rpgboss-interface-builder",
+  "description": "Lets you generate interfaces through drag and drop",
+  "version": "0.0.1",
+  "dependencies": {
+    "grunt-node-webkit-builder": "*"
+  }
+}

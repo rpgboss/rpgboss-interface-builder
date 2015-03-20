@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html ng-app="rpgbossib">
+<head>
+	<title></title>
+	<meta charset="utf-8" />
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/ngDialog.min.css">
+	<link rel="stylesheet" href="css/ngDialog-theme-default.min.css">
+	<script src="js/vendor/jquery.min.js"></script>
+	<script src="js/vendor/bootstrap.min.js"></script>
+	<script src="js/vendor/angular.min.js"></script>
+	<script src="js/vendor/ngDialog.min.js"></script>
+	<script src="js/app/main.js"></script>
+	<script src="js/app/navigation.js"></script>
+	<script src="js/app/project.js"></script>
+</head>
+<body class="container">
+	<div class="row">
+		<ul class="nav nav-pills" role="tablist" ng-controller="navigation">
+      <li role="presentation" class="dropdown open">
+        <a id="drop4" href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" role="button">
+          Project
+          <span class="caret"></span>
+        </a>
+        <ul id="menu1" class="dropdown-menu" role="menu" aria-labelledby="drop4">
+          <li role="presentation"><a role="menuitem" ng-click="new_project($event)" tabindex="-1" href="#">New</a></li>
+          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Open</a></li>
+          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Save</a></li>
+          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Close</a></li>
+          <li role="presentation" class="divider"></li>
+          <li role="presentation"><a role="menuitem" ng-click="exit($event)" tabindex="-1" href="#">Exit</a></li>
+        </ul>
+      </li>
+    </ul>
+	</div>
+	<div class="row">
+		<div class="col-xs-2">
+			a
+		</div>
+		<div class="col-xs-8">
+			<div id="screen"></div>
+		</div>
+		<div class="col-xs-2">
+			c
+		</div>
+	</div>
+</body>
+</html>

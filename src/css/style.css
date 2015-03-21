@@ -5,6 +5,30 @@
 #screen {
 	width: 640px;
 	height: 480px;
-	background: black;
+	background: url(../image/canvasbg.jpg);
 	margin: auto;
+	position: relative;
+	top: 0;
+	left: 0;
+}
+
+#library {
+	min-height: 500px;
+	width: 100%;
+	overflow: auto;
+	background: #efefef;
+}
+
+.droppable {
+	border: 1px solid red;
+}
+
+.libelement img {
+	width: 100%;
+}
+
+.libelement {
+	text-align: center;
+	border:1px solid black;
+	padding: 10px;
 }

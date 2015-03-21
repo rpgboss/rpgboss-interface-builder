@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="rpgbossib">
+<html>
 <head>
 	<title></title>
 	<meta charset="utf-8" />
@@ -12,12 +12,31 @@
 	<script src="js/vendor/angular.min.js"></script>
 	<script src="js/vendor/ngDialog.min.js"></script>
 	<script src="js/app/main.js"></script>
-	<script src="js/app/navigation.js"></script>
+
+	<script src="js/app/canvas.js"></script>
+	<script src="js/app/library.js"></script>
 	<script src="js/app/project.js"></script>
+
+	<script src="js/app/resource.js"></script>
+	<script src="js/app/canvasElement.js"></script>
+
+	<script src="js/app/dropToLibrary.js"></script>
+
+	<script src="js/app/dialogService.js"></script>
+	<script src="js/app/navigation.js"></script>
+
+	<script>
+	$(function() {
+		app.service('DialogService',DialogService);
+		app.controller('Navigation',Navigation);
+		angular.bootstrap(document, ['rpgbossib']);
+
+	});
+	</script>
 </head>
 <body class="container">
 	<div class="row">
-		<ul class="nav nav-pills" role="tablist" ng-controller="navigation">
+		<ul class="nav nav-pills" role="tablist" ng-controller="Navigation">
       <li role="presentation" class="dropdown open">
         <a id="drop4" href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" role="button">
           Project
@@ -25,8 +44,8 @@
         </a>
         <ul id="menu1" class="dropdown-menu" role="menu" aria-labelledby="drop4">
           <li role="presentation"><a role="menuitem" ng-click="new_project($event)" tabindex="-1" href="#">New</a></li>
-          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Open</a></li>
-          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Save</a></li>
+          <li role="presentation"><a role="menuitem" ng-click="open_project($event)" tabindex="-1" href="#">Open</a></li>
+          <li role="presentation"><a role="menuitem" ng-click="save_project($event)" tabindex="-1" href="#">Save</a></li>
           <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Close</a></li>
           <li role="presentation" class="divider"></li>
           <li role="presentation"><a role="menuitem" ng-click="exit($event)" tabindex="-1" href="#">Exit</a></li>
@@ -36,7 +55,7 @@
 	</div>
 	<div class="row">
 		<div class="col-xs-2">
-			a
+			<div id="library" class="row"></div>
 		</div>
 		<div class="col-xs-8">
 			<div id="screen"></div>

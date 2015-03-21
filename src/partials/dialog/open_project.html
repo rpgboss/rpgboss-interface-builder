@@ -1,0 +1,22 @@
+<div class="dialog-contents">
+		<h1>Open already existing project</h1>
+    <div class="row">
+    	<div class="col-xs-6">
+    		<input class="form-control" type="text" ng-model="filepath" />
+    	</div>
+    	<div class="col-xs-6">
+				<input type="file" accept=".rpgbossib" id="filepath" class="form-control hide" type="file" />
+				<a href="#" ng-click="selectProjectFile($event)" class="btn btn-primary">Select file</a>
+    	</div>
+    </div>
+    
+    <br><br>
+    <div class="row">
+    	<div class="col-xs-6">
+    		<input class="btn btn-primary" type="button" value="Open" ng-click="open()"/>
+    	</div>
+    	<div class="col-xs-6">
+    		<input class="btn btn-secondary" type="button" value="Cancel" ng-click="cancel()"/>
+    	</div>
+    </div>    
+</div>

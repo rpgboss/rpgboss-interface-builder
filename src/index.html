@@ -13,26 +13,7 @@
 	<script src="js/vendor/ngDialog.min.js"></script>
 	<script src="js/app/main.js"></script>
 
-	<script src="js/app/canvas.js"></script>
-	<script src="js/app/library.js"></script>
-	<script src="js/app/project.js"></script>
-
-	<script src="js/app/resource.js"></script>
-	<script src="js/app/canvasElement.js"></script>
-
-	<script src="js/app/dropToLibrary.js"></script>
-
-	<script src="js/app/dialogService.js"></script>
-	<script src="js/app/navigation.js"></script>
-
-	<script>
-	$(function() {
-		app.service('DialogService',DialogService);
-		app.controller('Navigation',Navigation);
-		angular.bootstrap(document, ['rpgbossib']);
-
-	});
-	</script>
+	<script data-main="js/init.js" src="js/vendor/require.js"></script>
 </head>
 <body class="container">
 	<div class="row">
@@ -47,6 +28,8 @@
           <li role="presentation"><a role="menuitem" ng-click="open_project($event)" tabindex="-1" href="#">Open</a></li>
           <li role="presentation"><a role="menuitem" ng-click="save_project($event)" tabindex="-1" href="#">Save</a></li>
           <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Close</a></li>
+          <li role="presentation" ng-show="last!=null" class="divider"></li>
+          <li role="presentation" ng-show="last!=null"><a role="menuitem" ng-click="open_last($event)" tabindex="-1" href="#">Open last {{last}}</a></li>
           <li role="presentation" class="divider"></li>
           <li role="presentation"><a role="menuitem" ng-click="exit($event)" tabindex="-1" href="#">Exit</a></li>
         </ul>
@@ -55,13 +38,22 @@
 	</div>
 	<div class="row">
 		<div class="col-xs-2">
-			<div id="library" class="row"></div>
+			<div id="library" class="row" ng-controller="Library">
+				<div ng-click="select($event, element)" ng-repeat="element in project.resources track by $index" class="libelement col-xs-3">
+					<img src="{{element.data}}" alt="">
+					<span>{{element.name}}</span>
+				</div>
+			</div>
 		</div>
-		<div class="col-xs-8">
-			<div id="screen"></div>
+		<div class="col-xs-8" ng-controller="Screen">
+			<div id="screen">
+				<div canvas-element ng-repeat="element in project.canvasElements">
+					
+				</div>
+			</div>
 		</div>
-		<div class="col-xs-2">
-			c
+		<div class="col-xs-2" ng-controller="Properties">
+			<div ng-include="template"></div>
 		</div>
 	</div>
 </body>

@@ -5,5 +5,8 @@
     "window": {
         "frame": true,
         "toolbar": true
-    }
+    },
+	  "dependencies": {
+	    "osenv": "*"
+	  }
 }

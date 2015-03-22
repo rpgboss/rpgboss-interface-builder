@@ -43,7 +43,6 @@ $(function() {
 
         if(/.png|.jpg|.jpeg|.gif/.test(file.name)) {
           Project.addResource(file.name, data);
-          Library.update();
         }
 
       }.bindToEventHandler(file), false);

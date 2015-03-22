@@ -4,9 +4,9 @@
     	<div class="col-xs-6">
     		<input class="form-control" type="text" ng-model="filepath" />
     	</div>
-    	<div class="col-xs-6">
-				<input type="file" accept=".rpgbossib" id="filepath" class="form-control hide" type="file" />
-				<a href="#" ng-click="selectProjectFile($event)" class="btn btn-primary">Select file</a>
+    	<div class="col-xs-6"> 
+				<input type="file" onchange="angular.element(this).scope().selectProjectServiceFile(this)" accept=".rpgbossib" id="filepath" class="form-control hide" type="file" />
+				<a href="#" ng-click="openFileDialog()" class="btn btn-primary">Select file</a>
     	</div>
     </div>
     

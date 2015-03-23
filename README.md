@@ -1,7 +1,7 @@
 # RPGBOSS Interface Builder
 
 This project aims for the generation of menus.
-Its build on nwjs (former known node-webkit).
+Its build on [nwjs](https://github.com/nwjs/nw.js) (former known node-webkit).
 
 ## Pre-requisites:
 - nodejs
@@ -27,6 +27,17 @@ After you have done that write that in the project paths with the terminal
 
 ```
 python start.py
+```
+
+3. Running on Windows
+
+You need to download the newest nwjs and put into your Programs folder C:\programs.<br>
+https://github.com/nwjs/nw.js#downloads<br>
+After you have done it, you need to set the path to the nwjs folder as environment variable.<br>
+Then type in the cmd or doubleclick on the ```start.bat``` file to run the application
+
+```
+start.bat
 ```
 
 ## Building the application:

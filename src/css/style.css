@@ -5,7 +5,8 @@
 #screen {
 	width: 640px;
 	height: 480px;
-	background: url(../image/canvasbg.jpg);
+	/* background: url(../image/canvasbg.jpg); */
+	background: #ccc;
 	margin: auto;
 	position: relative;
 	top: 0;

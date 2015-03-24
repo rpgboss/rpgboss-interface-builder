@@ -1,11 +1,16 @@
 define([], function() {
 
-	function Properties($scope, ngDialog, DialogService,$rootScope,LibraryService) {
+	function Properties($scope, ngDialog, DialogService,$rootScope,LibraryService,CanvasService) {
 
 		$scope.removeFromLibrary = function(evt) {
 			evt.preventDefault();
 			LibraryService.removeElement($scope.element);
 			$rootScope.$broadcast('remove-properties');
+		}
+
+		$scope.addToStage = function(evt) {
+			evt.preventDefault();
+			CanvasService.addElement($scope.element,1);
 		}
 
 		$rootScope.$on('select-element-on-stage', function(e, element) {
@@ -31,7 +36,7 @@ define([], function() {
 
 	}
 
-	Properties.$inject = ['$scope','ngDialog','DialogService','$rootScope','LibraryService'];
+	Properties.$inject = ['$scope','ngDialog','DialogService','$rootScope','LibraryService','CanvasService'];
 
 	return Properties;
 

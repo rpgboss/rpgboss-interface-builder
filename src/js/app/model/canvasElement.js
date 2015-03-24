@@ -16,6 +16,16 @@ define([], function() {
 			this.scale = scale;
 
 			this.layer = layer;
+
+			this.data = 'no content';
+
+			if(angular.isDefined(Project)) {
+				if(angular.isDefined(Project.current().resources[this.resourceindex])) {
+					this.data = Project.current().resources[this.resourceindex].data;
+				} else {
+					this.data = 'loaded to fail resource='+this.resourceindex;
+				}
+			}
 		}
 
 	}

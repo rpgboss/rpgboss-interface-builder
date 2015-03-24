@@ -9,6 +9,8 @@ define([
 
 		var path = '';
 
+		var self = this;
+
 		function resetData() {
 			data = {
 				name : "",
@@ -66,8 +68,8 @@ define([
 
 		function addCanvasElement(resourceindex, x, y, scale, layer) {
 				var index = data.canvasElements.length;
-				var element = new CanvasElement(this);
-				element.init(0, resourceindex, index, x, y,scale,layer);
+				var element = new CanvasElement(api);
+				element.init(1, resourceindex, index, x, y,scale,layer);
 				data.canvasElements.push(element);
 
 				return element;
@@ -89,7 +91,7 @@ define([
 			console.log(data);
 		}
 
-		return {
+		var api = {
 			create : function(name, dirpath,cb) {
 				create(name, dirpath, cb);
 			},
@@ -125,6 +127,8 @@ define([
 				resetData();
 			}
 		}
+
+		return api;
 	}
 
 	ProjectService.$inject = ['$rootScope'];

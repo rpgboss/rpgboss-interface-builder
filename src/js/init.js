@@ -8,7 +8,11 @@ requirejs([
 	'app/service/dialogService',
 	'app/service/appSettingsService',
 	'app/service/canvasService',
-	'app/service/libraryService'
+	'app/service/libraryService',
+
+	'app/directive/resizeable',
+	'app/directive/canvasElement',
+	'app/directive/events'
 ], function(
 	Library,
 	Navigation,
@@ -19,7 +23,11 @@ requirejs([
 	DialogService,
 	AppSettingsService,
 	CanvasService,
-	LibraryService
+	LibraryService,
+
+	resizeable,
+	canvasElement,
+	events
 ) {
 
 	app.controller('Navigation',Navigation);
@@ -32,6 +40,10 @@ requirejs([
 	app.factory('AppSettingsService',AppSettingsService);
 	app.factory('CanvasService',CanvasService);
 	app.factory('LibraryService',LibraryService);
+
+	app.directive('resizeable',resizeable);
+	app.directive('canvasElement',canvasElement);
+	app.directive('events',events);
 
 	angular.bootstrap(document, ['rpgbossib']);
 

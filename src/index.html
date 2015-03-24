@@ -5,9 +5,11 @@
 	<meta charset="utf-8" />
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/jquery-ui.min.css">
 	<link rel="stylesheet" href="css/ngDialog.min.css">
 	<link rel="stylesheet" href="css/ngDialog-theme-default.min.css">
 	<script src="js/vendor/jquery.min.js"></script>
+	<script src="js/vendor/jquery-ui.min.js"></script>
 	<script src="js/vendor/bootstrap.min.js"></script>
 	<script src="js/vendor/angular.min.js"></script>
 	<script src="js/vendor/ngDialog.min.js"></script>
@@ -50,7 +52,8 @@
 		</div>
 		<div class="col-xs-8" ng-controller="Screen">
 			<div id="screen">
-				<div canvas-element ng-repeat="element in project.canvasElements">
+				<div resizeable on-resize="resize()" canvas-element ng-style="{'width':element.style.width + 'px', 'height':element.style.height + 'px'}" ng-repeat="element in project.canvasElements">
+					<img events model="element" on-load="imageLoaded" ng-if="element.type==1" src="{{element.data}}" alt="">
 					
 				</div>
 			</div>

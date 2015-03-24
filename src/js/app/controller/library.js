@@ -6,6 +6,8 @@ define([], function() {
 
 		$rootScope.$on('project-loaded', function() {
 
+			$rootScope.projectLoaded = true;
+
 			$scope.project = ProjectService.current();
 			$scope.$apply();
 

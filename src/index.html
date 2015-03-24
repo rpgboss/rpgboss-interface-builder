@@ -16,8 +16,9 @@
 	<script data-main="js/init.js" src="js/vendor/require.js"></script>
 </head>
 <body class="container">
-	<div class="row">
-		<ul class="nav nav-pills" role="tablist" ng-controller="Navigation">
+	<div class="row" ng-controller="Navigation">
+		<input type="file" class="hide" id="fileChooser" onchange="angular.element(this).scope().updateAndImport(this)" multiple accept=".jpeg,.png,.jpg">
+		<ul class="nav nav-pills" role="tablist">
       <li role="presentation" class="dropdown open">
         <a id="drop4" href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" role="button">
           Project
@@ -30,6 +31,8 @@
           <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Close</a></li>
           <li role="presentation" ng-show="last!=null" class="divider"></li>
           <li role="presentation" ng-show="last!=null"><a role="menuitem" ng-click="open_last($event)" tabindex="-1" href="#">Open last {{last}}</a></li>
+          <li role="presentation" ng-show="projectLoaded" class="divider"></li>
+          <li role="presentation" ng-show="projectLoaded"><a role="menuitem" ng-click="import_to_library($event)" tabindex="-1" href="#">Import to library</a></li>
           <li role="presentation" class="divider"></li>
           <li role="presentation"><a role="menuitem" ng-click="exit($event)" tabindex="-1" href="#">Exit</a></li>
         </ul>

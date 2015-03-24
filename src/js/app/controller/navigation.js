@@ -8,6 +8,31 @@ define([], function() {
 			console.log(AppSettingsService.current());
 		});
 
+		$scope.updateAndImport = function(input) {
+			var files = input.files;
+
+			for (var i = 0; i < files.length; i++) { //for multiple files          
+			    (function(file) {
+			        var name = file.name;
+			        var reader = new FileReader();  
+			        reader.onloadend = function(e) {  
+				        if(/.png|.jpg|.jpeg/.test(file.name)) {
+				          ProjectService.addResource(file.name, reader.result);
+				          $scope.$apply();
+				        }
+			        }
+			        reader.readAsDataURL(file);
+			    })(files[i]);
+			}
+		}
+
+		$scope.import_to_library = function(evt) {
+			evt.preventDefault();
+			console.log('asd')
+			var chooser = document.getElementById('fileChooser');
+			chooser.click();
+		}
+
 		$scope.new_project = function(evt) {
 			evt.preventDefault();
 

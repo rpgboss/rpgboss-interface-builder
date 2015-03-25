@@ -12,6 +12,13 @@ define([], function() {
 						ProjectService.addResource(resource.name, resource.data);
 					}
 				});
+				var currentScreen = ProjectService.current().canvasElements;
+				ProjectService.current().canvasElements = [];
+				angular.forEach(currentScreen, function(canvasElement, key) {
+					if(canvasElement.resourceindex != element.index) {
+						ProjectService.current().canvasElements.push(CanvasService.addElement(element,element.type));
+					}
+				});
 			}
 		}
 

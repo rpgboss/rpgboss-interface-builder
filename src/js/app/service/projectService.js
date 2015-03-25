@@ -38,7 +38,18 @@ define([
 
 		function save(filepath, cb) {
 
-			fs.writeFile(filepath, JSON.stringify(data), function(err) {
+			var newdata = clone(data);
+
+			angular.forEach(newdata.canvasElements, function(element, key) {
+				if(element.type==1) {
+					element['$$hashKey'] = null;
+					delete element['$$hashKey'];
+					element.data = null;
+					delete element.data;
+				}
+			});
+
+			fs.writeFile(filepath, JSON.stringify(newdata), function(err) {
 			    if(err) {
 			        return cb(false,err);
 			    }

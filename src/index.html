@@ -73,7 +73,7 @@
 		</div>
 		<div class="col-xs-8" ng-controller="Screen">
 			<div id="screen">
-				<div resizeable on-resize="resize()" canvas-element ng-style="{'width':element.style.width + 'px', 'height':element.style.height + 'px'}" ng-repeat="element in project.canvasElements">
+				<div resizeable model="element" on-drag="drag" on-resize="resize" canvas-element ng-repeat="element in project.canvasElements">
 					<img events model="element" on-load="imageLoaded" ng-if="element.type==1" src="{{element.data}}" alt="">
 					
 				</div>

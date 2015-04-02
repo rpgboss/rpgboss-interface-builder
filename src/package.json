@@ -4,10 +4,25 @@
     "main": "index.html",
     "window": {
         "frame": true,
-        "toolbar": true
+        "toolbar": true,
+        "min_width": 1100,
+        "min_height": 700,
+        "icon": "icon.png"
     },
-	  "dependencies": {
-	    "osenv": "*",
+    "dependencies": {
+        "osenv": "*",
         "clone" : "*"
-	  }
+    },
+    "platformOverrides": { 
+        "win": {
+            "window": {
+                "toolbar": false
+            }
+        },
+        "osx": {
+            "window": {
+                "toolbar": false
+            }
+        }
+    }
 }

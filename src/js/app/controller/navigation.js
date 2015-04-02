@@ -106,6 +106,16 @@ define([], function() {
 			});
 		}
 
+		$scope.close_project = function(evt) {
+			evt.preventDefault();
+			DialogService.confirm('Notice','This feature is not build in yet.');
+		}
+
+		$scope.export_to_script = function(evt) {
+			evt.preventDefault();
+			DialogService.confirm('Notice','This feature is not build in yet.');
+		}
+
 		$scope.open_project = function(evt) {
 			evt.preventDefault();
 
@@ -152,6 +162,11 @@ define([], function() {
 			        }
 			    }]
 			});		
+		}
+
+		$scope.open_about = function(evt) {
+			evt.preventDefault();
+			DialogService.about();
 		}
 
 		$scope.exit = function(evt) {

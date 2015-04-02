@@ -45,6 +45,19 @@ requirejs([
 	app.directive('canvasElement',canvasElement);
 	app.directive('events',events);
 
+	app.run(function($rootScope) {
+		$rootScope.openLinkInBrowser = function(link) {
+			gui.Shell.openExternal(link);
+		}
+
+		$rootScope.changeTitle = function(text) {
+			document.title = 'RPGBOSS Interface Builder : V' + appVersion + text;
+		}
+
+		// Init process
+		$rootScope.changeTitle('');
+	});
+
 	angular.bootstrap(document, ['rpgbossib']);
 
 });

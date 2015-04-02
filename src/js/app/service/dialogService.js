@@ -17,6 +17,21 @@ define([], function() {
 				    }]
 				});	
 			}
+
+		this.about = function(onConfirm) {
+				ngDialog.open({
+				    template: 'partials/dialog/about.html',
+				    controller: ['$scope', function($scope) {
+
+				    	$scope.version = appVersion;
+
+				        $scope.confirm = function() {
+				        	$scope.closeThisDialog();
+				        	if(angular.isFunction(onConfirm)) onConfirm();
+				        }
+				    }]
+				});	
+			}
 	}
 
 	DialogService.$inject = ['ngDialog'];

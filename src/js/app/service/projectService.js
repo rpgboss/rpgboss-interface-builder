@@ -66,6 +66,8 @@ define([
 			  path = filepath;
 			  data = JSON.parse(filedata);
 
+			  $rootScope.changeTitle(' : Opened project = ' + data.name);
+
 			  cb(true);
 			});
 		}

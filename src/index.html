@@ -21,8 +21,8 @@
 	<div class="row" ng-controller="Navigation">
 		<input type="file" class="hide" id="fileChooser" onchange="angular.element(this).scope().updateAndImport(this)" multiple accept=".jpeg,.png,.jpg">
 		<ul class="nav nav-pills" role="tablist">
-      <li role="presentation" class="dropdown open">
-        <a id="drop4" href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" role="button">
+      <li role="presentation" class="dropdown">
+        <a id="drop3" href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" role="button">
           Project
           <span class="caret"></span>
         </a>
@@ -30,13 +30,34 @@
           <li role="presentation"><a role="menuitem" ng-click="new_project($event)" tabindex="-1" href="#">New</a></li>
           <li role="presentation"><a role="menuitem" ng-click="open_project($event)" tabindex="-1" href="#">Open</a></li>
           <li role="presentation"><a role="menuitem" ng-click="save_project($event)" tabindex="-1" href="#">Save</a></li>
-          <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Close</a></li>
+          <li role="presentation"><a role="menuitem" ng-click="close_project($event)" tabindex="-1" href="#">Close</a></li>
           <li role="presentation" ng-show="last!=null" class="divider"></li>
           <li role="presentation" ng-show="last!=null"><a role="menuitem" ng-click="open_last($event)" tabindex="-1" href="#">Open last {{last}}</a></li>
           <li role="presentation" ng-show="projectLoaded" class="divider"></li>
           <li role="presentation" ng-show="projectLoaded"><a role="menuitem" ng-click="import_to_library($event)" tabindex="-1" href="#">Import to library</a></li>
           <li role="presentation" class="divider"></li>
           <li role="presentation"><a role="menuitem" ng-click="exit($event)" tabindex="-1" href="#">Exit</a></li>
+        </ul>
+      </li>
+      <li role="presentation" class="dropdown">
+        <a id="drop3" href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" role="button">
+          Export
+          <span class="caret"></span>
+        </a>
+        <ul id="menu1" class="dropdown-menu" role="menu" aria-labelledby="drop4">
+          <li role="presentation"><a role="menuitem" ng-click="export_to_script($event)" tabindex="-1" href="#">To Script</a></li>
+        </ul>
+      </li>
+      <li role="presentation" class="dropdown">
+        <a id="drop4" href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" role="button">
+          Help
+          <span class="caret"></span>
+        </a>
+        <ul id="menu2" class="dropdown-menu" role="menu" aria-labelledby="drop5">
+          <li role="presentation"><a role="menuitem" ng-click="$root.openLinkInBrowser('http://rpgboss.forumatic.com/')" tabindex="-1" href="#">Community Forum</a></li>
+          <li role="presentation"><a role="menuitem" ng-click="$root.openLinkInBrowser('http://assets.rpgboss.com/')" tabindex="-1" href="#">Asset Server</a></li>
+          <li role="presentation" class="divider"></li>
+          <li role="presentation"><a role="menuitem" ng-click="open_about($event)" tabindex="-1" href="#">About</a></li>
         </ul>
       </li>
     </ul>

@@ -37,3 +37,7 @@
 .libelement.active {
 	background: #cecece;
 }
+
+.stageelement.active {
+	border: 1px solid red;
+}

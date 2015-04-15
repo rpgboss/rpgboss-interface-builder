@@ -11,6 +11,7 @@ define([], function() {
         return {
             restrict: 'A',
             scope: {
+                onSelect: '=onSelect',
                 onResize: '=onResize',
                 onDrag : '=onDrag',
                 model : '=model'
@@ -24,6 +25,9 @@ define([], function() {
                 });
                 elem.on( "dragstop", function(evt) {
                     if (scope.onDrag) scope.onDrag(evt, scope.model);
+                });
+                elem.on('click', function(evt) {
+                    if (scope.onSelect) scope.onSelect(evt, scope.model);
                 });
 
                 setTimeout(function() {

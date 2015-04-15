@@ -79,10 +79,15 @@ define([
 				data.resources.push(res);
 		}
 
-		function addCanvasElement(resourceindex, x, y, scale, layer) {
-				var index = data.canvasElements.length;
+		function addCanvasElement(resourceindex, index,x, y, scale, layer, id) {
+				
+				if(!angular.isDefined(index)) {
+					id = 'element'+data.canvasElements.length;
+				}
+				
 				var element = new CanvasElement(api);
-				element.init(1, resourceindex, index, x, y,scale,layer);
+				element.init(1, resourceindex, id, x, y,scale,layer);
+				element.index = data.canvasElements.length;
 				data.canvasElements.push(element);
 
 				return element;
@@ -98,7 +103,7 @@ define([
 			var oldCanvasElements = data.canvasElements;
 			data.canvasElements = [];
 			angular.forEach(oldCanvasElements, function(element, key) {
-				addCanvasElement(element.resourceindex, element.x, element.y, element.scale, element.layer)
+				addCanvasElement(element.resourceindex, element.x, element.y, element.scale, element.layer, element.id)
 			});
 
 			console.log(data);

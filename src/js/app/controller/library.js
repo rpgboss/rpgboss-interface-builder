@@ -14,10 +14,13 @@ define([], function() {
 		});
 
 		$scope.select = function(evt, element) {
-			$('.libelement').removeClass('active');
+			$('.libelement,.stageelement').removeClass('active');
 			evt.currentTarget.className += " active";
 
-			$rootScope.$broadcast('select-element-on-stage', element);
+			$rootScope.$broadcast('select-element-on-stage', {
+				element : element,
+				location : 0
+			});
 		}
 
 	}

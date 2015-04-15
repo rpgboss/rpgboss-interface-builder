@@ -8,25 +8,41 @@ define([], function() {
 			$rootScope.$broadcast('remove-properties');
 		}
 
+		$scope.removeFromStage = function(evt) {
+			evt.preventDefault();
+			CanvasService.removeElement($scope.element);
+			$rootScope.$broadcast('remove-properties');
+		}
+
 		$scope.addToStage = function(evt) {
 			evt.preventDefault();
 			CanvasService.addElement($scope.element,1);
 		}
 
-		$rootScope.$on('select-element-on-stage', function(e, element) {
+		$rootScope.$on('select-element-on-stage', function(e, data) {
 
 				var templateName = "";
+				console.log(data)
+				if(data.location==0) {
 
-				if(element.type==0) {
-					templateName = "image";
+					if(data.element.type==1) {
+						templateName = "libelement";
+					}
+
 				}
-				if(element.type==1) {
-					templateName = "libelement";
+				if(data.location==1) {
+
+					if(data.element.type==1) {
+						templateName = "image";
+					}
+
 				}
 
-				$scope.element = element;
+				$scope.element = data.element;
 
 				$scope.template = 'partials/properties/'+templateName+'.html';
+
+				$scope.$apply();
 
 		});
 

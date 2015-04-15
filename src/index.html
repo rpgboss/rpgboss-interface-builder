@@ -64,16 +64,25 @@
 	</div>
 	<div class="row">
 		<div class="col-xs-2">
+      <h4>Library</h4>
 			<div id="library" class="row" ng-controller="Library">
 				<div ng-click="select($event, element)" ng-repeat="element in project.resources track by $index" class="libelement col-xs-3">
 					<img src="{{element.data}}" alt="">
 					<span>{{element.name}}</span>
 				</div>
 			</div>
+      <h4>Layers</h4>
+      <div id="layerlist" ng-controller="LayerList">
+        <ul sortable on-sort-stop="sortStop">
+          <li data-id="{{element.id}}" ng-repeat="element in project.canvasElements track by $index">
+            {{element.id}}
+          </li>
+        </ul>
+      </div>
 		</div>
 		<div class="col-xs-8" ng-controller="Screen">
 			<div id="screen">
-				<div resizeable model="element" on-drag="drag" on-resize="resize" canvas-element ng-repeat="element in project.canvasElements">
+				<div class="stageelement" resizeable model="element" on-select="selection" on-drag="drag" on-resize="resize" canvas-element ng-repeat="element in project.canvasElements track by $index">
 					<img events model="element" on-load="imageLoaded" ng-if="element.type==1" src="{{element.data}}" alt="">
 					
 				</div>

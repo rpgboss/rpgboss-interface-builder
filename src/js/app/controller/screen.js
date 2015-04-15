@@ -8,13 +8,13 @@ define([], function() {
 		});
 
 		$rootScope.$on('element-drag', function(evt, data) {
-			console.log('drag',evt,data)
+			console.log('drag',data.element)
 			data.target.style.top = data.element.y + 'px';
 			data.target.style.left = data.element.x + 'px';
 		});
 
 		$rootScope.$on('element-resize', function(evt, data) {
-			console.log('resize',evt,data)
+			console.log('resize',data.element)
 			data.target.style.width = (data.element.width * data.element.scale) + 'px';
 			data.target.style.height = (data.element.height * data.element.scale) + 'px';
 		});
@@ -33,6 +33,16 @@ define([], function() {
 
 			element.x = parseInt(x);
 			element.y = parseInt(y);
+		}
+
+		$scope.selection = function(evt, element) {
+			$('.stageelement,.libelement').removeClass('active');
+			evt.currentTarget.className += " active";
+
+			$rootScope.$broadcast('select-element-on-stage', {
+				element : element,
+				location : 1
+			});
 		}
 
 		$scope.imageLoaded = function(evt, element) {
